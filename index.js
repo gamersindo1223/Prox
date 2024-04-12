@@ -50,6 +50,7 @@ app.all("/proxy/", async (req, res) => {
       body: body,
       method: method,
     });
+
     return res.json({
       body: resp.data,
       headers: resp.headers,
@@ -61,8 +62,9 @@ app.all("/proxy/", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Listen on port 3000");
+const port = process.env.SERVER_PORT || process.env.PORT || 3000
+app.listen(port, () => {
+  console.log("Listen on port " + port); 
 });
 const isValidUrl = (urlString) => {
   let url;
