@@ -47,7 +47,7 @@ app.all("/proxy/", async (req, res) => {
     const resp = await axios.request({
       baseURL: url,
       headers: headers,
-      body: body,
+      body: body == Object ? body : JSON.parse(body),
       method: method,
     });
 
