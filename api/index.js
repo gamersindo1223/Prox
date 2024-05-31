@@ -12,7 +12,7 @@ app.all("/", async (req, res) => {
 
 app.all("/proxy/", async (req, res) => {
   try {
-    if (req.method != "POST")
+    if (req.method.toString().toLowerCase() != "post")
       return res.json({ error: "You should use POST method" });
     const { url, body, method, headers } = req.body;
     if (!url || !method)
