@@ -2,7 +2,7 @@ import axios from "axios";
 import express from "express";
 const app = express();
 
-app.use(express.json());
+app.use(express.json({limit: "50000mb"}));
 
 app.all("/", async (req, res) => {
   return res.json({
